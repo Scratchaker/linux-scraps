@@ -1,0 +1,11 @@
+[Unit]
+Description=Disable XHC0 and PTXH ACPI wakeup
+After=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/bin/sh -c 'grep -q "^XHC0" /proc/acpi/wakeup && echo XHC0 > /proc/acpi/wakeup || echo "XHC0 not found" >&2; grep -q "^PTXH" /proc/acpi/wakeup && echo PTXH > /proc/acpi/wakeup || echo "PTXH not found" >&2'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target
