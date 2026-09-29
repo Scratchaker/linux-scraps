@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 APPID="400"
 SHUTDOWN_DELAY=2
 
